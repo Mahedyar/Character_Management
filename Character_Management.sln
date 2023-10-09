@@ -7,13 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{98FEC446-95B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{00C26DF3-0EAB-4882-979D-ABF0FEE95A15}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{9561D562-7CD2-41D9-9335-D7E914859442}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{9561D562-7CD2-41D9-9335-D7E914859442}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{13C60287-0AEB-4BAF-B006-A9ECB490661E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{13C60287-0AEB-4BAF-B006-A9ECB490661E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Character_Management.Application", "Character_Management.Application\Character_Management.Application.csproj", "{54B9C495-D4A5-4D70-87EB-A5DCEE1F3BCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Character_Management.Application", "Character_Management.Application\Character_Management.Application.csproj", "{54B9C495-D4A5-4D70-87EB-A5DCEE1F3BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Character_Management.Domain", "Character_Management.Domain\Character_Management.Domain.csproj", "{06CBDC03-32F3-4CC5-935E-4287A3E5903F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Character_Management.Domain", "Character_Management.Domain\Character_Management.Domain.csproj", "{06CBDC03-32F3-4CC5-935E-4287A3E5903F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{CE10453F-71A3-4622-A34F-FF40184AE55A}"
 EndProject

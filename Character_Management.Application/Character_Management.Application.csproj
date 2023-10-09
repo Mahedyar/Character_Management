@@ -6,8 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="features\" />
-    <Folder Include="profiles\" />
+    <Folder Include="Features\Characters\Handlers\Commands\" />
+    <Folder Include="Features\Characters\Handlers\Queries\" />
+    <Folder Include="Features\Characters\Requests\Commands\" />
+    <Folder Include="Features\Characters\Requests\Queries\" />
+    <Folder Include="Features\CharacterTypes\Handlers\Commands\" />
+    <Folder Include="Features\CharacterTypes\Requests\Commands\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Character_Management.Domain\Character_Management.Domain.csproj" />
   </ItemGroup>
 
 </Project>
