@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Character_Management.Domain
+namespace Character_Management.Application.DTOs.CharacterType
 {
     public class CharacterTypeDto : BaseDto
     {

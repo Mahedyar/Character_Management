@@ -1,4 +1,4 @@
-﻿using Character_Management.Domain;
+﻿using Character_Management.Application.DTOs.CharacterType;
 using MediatR;
 using System;
 using System.Collections.Generic;

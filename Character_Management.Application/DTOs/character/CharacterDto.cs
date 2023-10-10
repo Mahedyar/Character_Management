@@ -1,4 +1,5 @@
-﻿using Character_Management.Application.DTOs.common;
+﻿using Character_Management.Application.DTOs.CharacterType;
+using Character_Management.Application.DTOs.common;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,8 @@ namespace Character_Management.Domain
         public string? AbilityType { get; set; }
         public string Continent { get; set; }
         public string Country { get; set; }
-        public DateTime DateRequested { get; set; }
+        public DateTime RequestDate { get; set; }
+        public DateTime? RespondedDate { get; set; }
         public bool? Approved { get; set; }
         public bool? Cancelled { get; set;}
 

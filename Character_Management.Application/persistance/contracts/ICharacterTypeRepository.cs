@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Character_Management.Application.persistance.contracts
 {
-    public interface ICharacterTypeRepository:IGenericRepository<CharacterTypeDto>
+    public interface ICharacterTypeRepository:IGenericRepository<CharacterType>
     {
 
     }

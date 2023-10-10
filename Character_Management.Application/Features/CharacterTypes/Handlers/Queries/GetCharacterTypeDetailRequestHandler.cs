@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Character_Management.Application.DTOs.CharacterType;
 using Character_Management.Application.Features.CharacterTypes.Requests.Queries;
 using Character_Management.Application.persistance.contracts;
-using Character_Management.Domain;
 using MediatR;
 using System;
 using System.Collections.Generic;

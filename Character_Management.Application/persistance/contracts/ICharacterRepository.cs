@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Character_Management.Application.persistance.contracts
 {
-    public interface ICharacterRepository:IGenericRepository<CharacterDto>
+    public interface ICharacterRepository:IGenericRepository<Character>
     {
         Task<List<Character>> GetCharactersWithDetails();
         Task<Character> GetSingleCharacterWithDetails(int id);

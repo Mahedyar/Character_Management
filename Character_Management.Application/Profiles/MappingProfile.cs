@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Character_Management.Application.DTOs.character;
+using Character_Management.Application.DTOs.CharacterType;
 using Character_Management.Domain;
 using System;
 using System.Collections.Generic;

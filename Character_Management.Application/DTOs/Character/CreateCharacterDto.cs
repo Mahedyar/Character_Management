@@ -1,15 +1,15 @@
-﻿using Character_Management.Domain.common;
+﻿using Character_Management.Application.DTOs.CharacterType;
+using Character_Management.Application.DTOs.common;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Character_Management.Domain
+namespace Character_Management.Application.DTOs.Character
 {
-    public class Character : BaseDomainEntity
+    public class CreateCharacterDto:BaseDto
     {
         public string Name { get; set; }
         public string House { get; set; }
-        public CharacterType CharacterType { get; set; }
         public int CharacterTypeID { get; set; }
         public string? Story { get; set; }
         public string? AbilityDescription { get; set; }
@@ -17,10 +17,6 @@ namespace Character_Management.Domain
         public string Continent { get; set; }
         public string Country { get; set; }
         public DateTime RequestDate { get; set; }
-        public DateTime? RespondedDate { get; set; }
-        public bool? Approved { get; set; }
-        public bool? Cancelled { get; set;}
-
 
     }
 }
