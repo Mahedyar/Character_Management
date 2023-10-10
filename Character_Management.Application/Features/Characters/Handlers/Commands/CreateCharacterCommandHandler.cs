@@ -23,7 +23,7 @@ namespace Character_Management.Application.Features.Characters.Handlers.Commands
         }
         public async Task<int> Handle(CreateCharacterCommand request, CancellationToken cancellationToken)
         {
-            var character = _mapper.Map<Character>(request.CharacterDto);
+            var character = _mapper.Map<Character>(request.CreateCharacterDto);
             character = await _characterRepository.Add(character);
             return character.ID;
         }

@@ -1,4 +1,5 @@
-﻿using Character_Management.Domain;
+﻿using Character_Management.Application.DTOs.Character;
+using Character_Management.Domain;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,6 @@ namespace Character_Management.Application.Features.Characters.Requests.Commands
 {
     public class CreateCharacterCommand:IRequest<int>
     {
-        public CharacterDto CharacterDto {  get; set; }
+        public CreateCharacterDto CreateCharacterDto {  get; set; }
     }
 }
