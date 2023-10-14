@@ -5,6 +5,7 @@ namespace Character_Management.Application.Features.Characters.Requests.Commands
 {
     public class UpdateCharacterCommand:IRequest<Unit>
     {
+        public int ID { get; set; }
         public UpdateCharacterDto UpdateCharacterDto { get; set; }
 
         public ChangeCharacterApprovalDto ChangeCharacterApprovalDto { get; set; }

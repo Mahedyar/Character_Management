@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Character_Management.Application.Features.CharacterTypes.Handlers.Queries
 {
-    public class GetCharacterTypeListRequestHandler : IRequestHandler<GetCharacterTypeListRequest, List<CharacterTypeDto>>
+    public class GetCharacterTypeListRequestHandler : IRequestHandler<GetCharacterTypeListRequest, List<CreateCharacterTypeDto>>
     {
         private readonly ICharacterTypeRepository _characterTypeRepository;
         private readonly IMapper _mapper;
@@ -21,10 +21,10 @@ namespace Character_Management.Application.Features.CharacterTypes.Handlers.Quer
             _characterTypeRepository = characterTypeRepository;
             _mapper = mapper;
         }
-        public async Task<List<CharacterTypeDto>> Handle(GetCharacterTypeListRequest request, CancellationToken cancellationToken)
+        public async Task<List<CreateCharacterTypeDto>> Handle(GetCharacterTypeListRequest request, CancellationToken cancellationToken)
         {
             var characterTypeList = await _characterTypeRepository.GetAll();
-            return _mapper.Map<List<CharacterTypeDto>>(characterTypeList);
+            return _mapper.Map<List<CreateCharacterTypeDto>>(characterTypeList);
         }
     }
 }

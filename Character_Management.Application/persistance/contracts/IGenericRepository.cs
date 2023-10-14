@@ -12,5 +12,6 @@ namespace Character_Management.Application.persistance.contracts
         Task<T> Add(T entity);
         Task<T> Update(T entity);
         Task<T> Delete(T entity);
+        Task<bool> Exist(int ID);
     }
 }

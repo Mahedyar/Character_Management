@@ -1,12 +1,8 @@
-﻿using Character_Management.Application.DTOs.CharacterType;
-using Character_Management.Application.DTOs.common;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace Character_Management.Application.DTOs.Character
 {
-    public class CreateCharacterDto:BaseDto
+    public class CreateCharacterDto :ICharacterTypeDto
     {
         public string Name { get; set; }
         public string House { get; set; }

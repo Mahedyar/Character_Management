@@ -1,8 +1,10 @@
-﻿using Character_Management.Application.DTOs.common;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Character_Management.Application.DTOs.Character
 {
-    public class UpdateCharacterDto:BaseDto,ICharacterTypeDto
+    public interface ICharacterTypeDto
     {
         public string Name { get; set; }
         public string House { get; set; }

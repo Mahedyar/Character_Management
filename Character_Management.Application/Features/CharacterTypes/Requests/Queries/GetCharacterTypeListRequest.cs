@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Character_Management.Application.Features.CharacterTypes.Requests.Queries
 {
-    public class GetCharacterTypeListRequest :IRequest<List<CharacterTypeDto>>
+    public class GetCharacterTypeListRequest :IRequest<List<CreateCharacterTypeDto>>
     {
 
     }

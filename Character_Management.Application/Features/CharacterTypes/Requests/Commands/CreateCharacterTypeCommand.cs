@@ -9,6 +9,6 @@ namespace Character_Management.Application.Features.CharacterTypes.Requests.Comm
 {
     public class CreateCharacterTypeCommand:IRequest<int>
     {
-        public CharacterTypeDto CharacterTypeDto {  get; set; }
+        public CreateCharacterTypeDto CreateCharacterTypeDto {  get; set; }
     }
 }

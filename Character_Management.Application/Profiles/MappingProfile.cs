@@ -14,7 +14,7 @@ namespace Character_Management.Application.profiles
         {
             CreateMap<Character, CharacterDto>().ReverseMap();
             CreateMap<Character, CharacterListDto>().ReverseMap();
-            CreateMap<CharacterType, CharacterTypeDto>().ReverseMap();
+            CreateMap<CharacterType, CreateCharacterTypeDto>().ReverseMap();
 
         }
     }

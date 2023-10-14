@@ -10,5 +10,7 @@ namespace Character_Management.Application.persistance.contracts
     {
         Task<List<Character>> GetCharactersWithDetails();
         Task<Character> GetSingleCharacterWithDetails(int id);
+
+        Task ChangeApprovalStatus(Character character, bool? approvalStatus);
     }
 }
