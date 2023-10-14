@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Character_Management.Application.Exceptions;
 using Character_Management.Application.Features.CharacterTypes.Requests.Commands;
 using Character_Management.Application.persistance.contracts;
+using Character_Management.Domain;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,10 @@ namespace Character_Management.Application.Features.CharacterTypes.Handlers.Comm
         public async Task<Unit> Handle(DeleteCharacterTypeCommand request, CancellationToken cancellationToken)
         {
             var characterType = await _characterTypeRepository.Get(request.ID);
+            if(characterType == null)
+            {
+                throw new NotFoundException(nameof(CharacterType), request.ID);
+            }
             await _characterTypeRepository.Delete(characterType);
             return Unit.Value;
         }

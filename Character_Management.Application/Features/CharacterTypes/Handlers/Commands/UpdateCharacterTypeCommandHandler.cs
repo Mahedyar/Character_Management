@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Character_Management.Application.DTOs.CharacterType.Validators;
+using Character_Management.Application.Exceptions;
 using Character_Management.Application.Features.CharacterTypes.Requests.Commands;
 using Character_Management.Application.persistance.contracts;
 using MediatR;
@@ -28,7 +29,7 @@ namespace Character_Management.Application.Features.CharacterTypes.Handlers.Comm
             var validationResult = await validator.ValidateAsync(request.UpdateCharacterTypeDto);
             if(validationResult != null)
             {
-                throw new Exception();
+                throw new ValidationException(validationResult);
             }
             var characterType = await _characterTypeRepository.Get(request.UpdateCharacterTypeDto.ID);
             _mapper.Map(request.UpdateCharacterTypeDto, characterType);

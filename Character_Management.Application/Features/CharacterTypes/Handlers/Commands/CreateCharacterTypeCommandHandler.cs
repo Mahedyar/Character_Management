@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Character_Management.Application.DTOs.CharacterType.Validators;
+using Character_Management.Application.Exceptions;
 using Character_Management.Application.Features.CharacterTypes.Requests.Commands;
 using Character_Management.Application.persistance.contracts;
 using Character_Management.Domain;
@@ -28,7 +29,7 @@ namespace Character_Management.Application.Features.CharacterTypes.Handlers.Comm
             var validationResult = await validator.ValidateAsync(request.CreateCharacterTypeDto);
             if (validationResult.IsValid)
             {
-                throw new Exception();
+                throw new ValidationException(validationResult) ;
             }
             var characterType = _mapper.Map<CharacterType>(request.CreateCharacterTypeDto);
             characterType = await _characterTypeRepository.Add(characterType);

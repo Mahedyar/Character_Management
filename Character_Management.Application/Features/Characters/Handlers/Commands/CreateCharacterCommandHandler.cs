@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Character_Management.Application.DTOs.Character.Validators;
+using Character_Management.Application.Exceptions;
 using Character_Management.Application.Features.Characters.Requests.Commands;
 using Character_Management.Application.persistance.contracts;
 using Character_Management.Domain;
@@ -19,7 +20,7 @@ namespace Character_Management.Application.Features.Characters.Handlers.Commands
         public CreateCharacterTypeCommandHandler(ICharacterRepository characterRepository,ICharacterTypeRepository characterTypeRepository , IMapper mapper)
         {
            _characterRepository = characterRepository;
-            this._characterTypeRepository = characterTypeRepository;
+           _characterTypeRepository = characterTypeRepository;
             _mapper = mapper;
         }
         public async Task<int> Handle(CreateCharacterCommand request, CancellationToken cancellationToken)
@@ -28,7 +29,7 @@ namespace Character_Management.Application.Features.Characters.Handlers.Commands
             var validationResult = await validator.ValidateAsync(request.CreateCharacterDto);
             if(validationResult.IsValid == false)
             {
-                throw new Exception();
+                throw new ValidationException(validationResult);
             }
 
             var character = _mapper.Map<Character>(request.CreateCharacterDto);
