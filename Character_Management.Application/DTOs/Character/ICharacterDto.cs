@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Character_Management.Application.DTOs.Character
 {
-    public interface ICharacterTypeDto
+    public interface ICharacterDto
     {
         public string Name { get; set; }
         public string House { get; set; }

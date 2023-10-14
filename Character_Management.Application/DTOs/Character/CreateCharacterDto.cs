@@ -2,7 +2,7 @@
 
 namespace Character_Management.Application.DTOs.Character
 {
-    public class CreateCharacterDto :ICharacterTypeDto
+    public class CreateCharacterDto :ICharacterDto
     {
         public string Name { get; set; }
         public string House { get; set; }

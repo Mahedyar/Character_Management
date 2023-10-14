@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Character_Management.Application.DTOs.Character.Validators
 {
-    public class ICharacterDtoValidator : AbstractValidator<ICharacterTypeDto>
+    public class ICharacterDtoValidator : AbstractValidator<ICharacterDto>
     {
         private readonly ICharacterTypeRepository _characterTypeRepository;
 

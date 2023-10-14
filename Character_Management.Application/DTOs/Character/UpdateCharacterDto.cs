@@ -2,7 +2,7 @@
 
 namespace Character_Management.Application.DTOs.Character
 {
-    public class UpdateCharacterDto:BaseDto,ICharacterTypeDto
+    public class UpdateCharacterDto:BaseDto,ICharacterDto
     {
         public string Name { get; set; }
         public string House { get; set; }

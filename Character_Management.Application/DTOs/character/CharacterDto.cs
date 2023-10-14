@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Character_Management.Domain
 {
-    public class CharacterDto : BaseDto,ICharacterTypeDto
+    public class CharacterDto : BaseDto,ICharacterDto
     {
         public string Name { get; set; }
         public string House { get; set; }
