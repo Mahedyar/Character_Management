@@ -1,4 +1,4 @@
-namespace Character_Management.Api
+namespace Character_Management
 {
     public class WeatherForecast
     {
