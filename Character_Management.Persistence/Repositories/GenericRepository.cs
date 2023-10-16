@@ -1,8 +1,6 @@
-﻿using Character_Management.Application.persistance.contracts;
+﻿using Character_Management.Application.Contracts.Persistence;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Character_Management.Persistence.Repositories
@@ -24,6 +22,8 @@ namespace Character_Management.Persistence.Repositories
 
         public async Task Delete(T entity)
         {
+            //_context.Remove(entity);
+
             _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
         }
@@ -47,6 +47,8 @@ namespace Character_Management.Persistence.Repositories
         public async Task Update(T entity)
         {
             //_context.Entry(entity).State = EntityState.Modified;
+            //_context.Update(entity);
+
             _context.Set<T>().Update(entity);
             await _context.SaveChangesAsync();
         }

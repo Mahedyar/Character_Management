@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Character_Management.Application.Contracts.Infrastructure;
+using Character_Management.Application.Contracts.Persistence;
 using Character_Management.Application.DTOs.Character.Validators;
 using Character_Management.Application.Exceptions;
 using Character_Management.Application.Features.Characters.Requests.Commands;
-using Character_Management.Application.persistance.contracts;
+using Character_Management.Application.Models;
 using Character_Management.Application.Responses;
 using Character_Management.Domain;
 using FluentValidation.Internal;
@@ -19,19 +21,21 @@ namespace Character_Management.Application.Features.Characters.Handlers.Commands
         private readonly ICharacterRepository _characterRepository;
         private readonly ICharacterTypeRepository _characterTypeRepository;
         private readonly IMapper _mapper;
+        private readonly IEmailSender _emailSender;
 
-        public CreateCharacterTypeCommandHandler(ICharacterRepository characterRepository,ICharacterTypeRepository characterTypeRepository , IMapper mapper)
+        public CreateCharacterTypeCommandHandler(ICharacterRepository characterRepository, ICharacterTypeRepository characterTypeRepository, IMapper mapper, IEmailSender emailSender)
         {
-           _characterRepository = characterRepository;
-           _characterTypeRepository = characterTypeRepository;
+            _characterRepository = characterRepository;
+            _characterTypeRepository = characterTypeRepository;
             _mapper = mapper;
+            _emailSender = emailSender;
         }
         public async Task<BaseCommandResponse> Handle(CreateCharacterCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponse();
             var validator = new CreateCharacterDtoValidator(_characterTypeRepository);
             var validationResult = await validator.ValidateAsync(request.CreateCharacterDto);
-            if(validationResult.IsValid == false)
+            if (validationResult.IsValid == false)
             {
                 //throw new ValidationException(validationResult);
                 response.Success = false;
@@ -44,6 +48,20 @@ namespace Character_Management.Application.Features.Characters.Handlers.Commands
             response.Success = true;
             response.Message = "Creation Successful";
             response.ID = character.ID;
+            var email = new Email
+            {
+                To = "mahedyar@gmail.com",
+                Subject = "Character Submitted",
+                Body = $"Your Character Named {request.CreateCharacterDto.Name} Has Been Submitted"
+            };
+            try
+            {
+                await _emailSender.SendEmail(email);
+            }
+            catch (Exception ex)
+            {
+                //log
+            }
             return response;
         }
     }

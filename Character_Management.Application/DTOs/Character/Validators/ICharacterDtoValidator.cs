@@ -1,4 +1,4 @@
-﻿using Character_Management.Application.persistance.contracts;
+﻿using Character_Management.Application.Contracts.Persistence;
 using FluentValidation;
 
 namespace Character_Management.Application.DTOs.Character.Validators

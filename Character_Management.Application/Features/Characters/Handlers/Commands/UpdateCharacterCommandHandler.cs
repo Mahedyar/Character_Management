@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using Character_Management.Application.Contracts.Persistence;
 using Character_Management.Application.DTOs.Character.Validators;
 using Character_Management.Application.Exceptions;
 using Character_Management.Application.Features.Characters.Requests.Commands;
-using Character_Management.Application.persistance.contracts;
 using MediatR;
 using System;
 using System.Collections.Generic;

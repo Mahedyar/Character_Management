@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Character_Management.Application.Contracts.Persistence;
 using Character_Management.Application.Exceptions;
 using Character_Management.Application.Features.Characters.Requests.Commands;
-using Character_Management.Application.persistance.contracts;
 using Character_Management.Domain;
 using MediatR;
 using System;
