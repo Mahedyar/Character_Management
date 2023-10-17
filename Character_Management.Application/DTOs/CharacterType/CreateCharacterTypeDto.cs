@@ -1,9 +1,4 @@
-﻿using Character_Management.Application.DTOs.common;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Character_Management.Application.DTOs.CharacterType
+﻿namespace Character_Management.Application.DTOs.CharacterType
 {
     public class CreateCharacterTypeDto:ICharacterTypeDto
     {

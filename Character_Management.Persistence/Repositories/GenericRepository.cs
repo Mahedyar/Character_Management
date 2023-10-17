@@ -46,8 +46,6 @@ namespace Character_Management.Persistence.Repositories
 
         public async Task Update(T entity)
         {
-            //_context.Entry(entity).State = EntityState.Modified;
-            //_context.Update(entity);
 
             _context.Set<T>().Update(entity);
             await _context.SaveChangesAsync();
