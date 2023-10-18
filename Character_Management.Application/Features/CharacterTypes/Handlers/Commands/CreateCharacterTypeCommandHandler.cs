@@ -27,9 +27,9 @@ namespace Character_Management.Application.Features.CharacterTypes.Handlers.Comm
         {
             var validator = new CreateCharacterTypeDtoValidator();
             var validationResult = await validator.ValidateAsync(request.CreateCharacterTypeDto);
-            if (validationResult.IsValid)
+            if (!validationResult.IsValid)
             {
-                throw new ValidationException(validationResult) ;
+                throw new ValidationException(validationResult);
             }
             var characterType = _mapper.Map<CharacterType>(request.CreateCharacterTypeDto);
             characterType = await _characterTypeRepository.Add(characterType);

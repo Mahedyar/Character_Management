@@ -23,6 +23,7 @@ namespace Character_Management.Application.profiles
             #region CharacterType Mapping
             CreateMap<CharacterType, CreateCharacterTypeDto>().ReverseMap();
             CreateMap<CharacterType, UpdateCharacterTypeDto>().ReverseMap();
+            CreateMap<CharacterType, CharacterTypeDto>().ReverseMap();
             #endregion
         }
     }

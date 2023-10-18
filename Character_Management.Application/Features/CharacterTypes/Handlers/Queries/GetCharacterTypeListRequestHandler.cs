@@ -3,9 +3,7 @@ using Character_Management.Application.Contracts.Persistence;
 using Character_Management.Application.DTOs.CharacterType;
 using Character_Management.Application.Features.CharacterTypes.Requests.Queries;
 using MediatR;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

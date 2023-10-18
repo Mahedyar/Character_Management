@@ -6,6 +6,7 @@ namespace Character_Management.Application.DTOs.CharacterType
 {
     public interface ICharacterTypeDto
     {
+        
         public string Type { get; set; }
     }
 }

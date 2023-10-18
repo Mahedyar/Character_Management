@@ -16,14 +16,14 @@ using System.Threading.Tasks;
 
 namespace Character_Management.Application.Features.Characters.Handlers.Commands
 {
-    public class CreateCharacterTypeCommandHandler : IRequestHandler<CreateCharacterCommand, BaseCommandResponse>
+    public class CreateCharacterCommandHandler : IRequestHandler<CreateCharacterCommand, BaseCommandResponse>
     {
         private readonly ICharacterRepository _characterRepository;
         private readonly ICharacterTypeRepository _characterTypeRepository;
         private readonly IMapper _mapper;
         private readonly IEmailSender _emailSender;
 
-        public CreateCharacterTypeCommandHandler(ICharacterRepository characterRepository, ICharacterTypeRepository characterTypeRepository, IMapper mapper, IEmailSender emailSender)
+        public CreateCharacterCommandHandler(ICharacterRepository characterRepository, ICharacterTypeRepository characterTypeRepository, IMapper mapper, IEmailSender emailSender)
         {
             _characterRepository = characterRepository;
             _characterTypeRepository = characterTypeRepository;

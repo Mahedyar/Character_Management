@@ -2,6 +2,7 @@
 {
     public class CreateCharacterTypeDto:ICharacterTypeDto
     {
+        
         public string Type { get; set; }
     }
 }
