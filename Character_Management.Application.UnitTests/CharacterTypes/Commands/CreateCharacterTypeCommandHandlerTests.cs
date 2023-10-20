@@ -17,9 +17,9 @@ namespace Character_Management.Application.UnitTests.CharacterTypes.Commands
 {
     public class CreateCharacterTypeCommandHandlerTests
     {
-        private readonly IMapper _mapper;
-        Mock<ICharacterTypeRepository> _mockCharactertTypeRepository;
-        CreateCharacterTypeDto _createCharacterTypeDto;
+       private readonly IMapper _mapper;
+       readonly Mock<ICharacterTypeRepository> _mockCharactertTypeRepository;
+       readonly CreateCharacterTypeDto _createCharacterTypeDto;
         public CreateCharacterTypeCommandHandlerTests()
         {
             _mockCharactertTypeRepository = MockCharacterTypeRepository.GetCharacterTypeRepository();
