@@ -1,3 +1,5 @@
+using Character_Management.MVC.Contracts;
+using Character_Management.MVC.Services;
 using Character_Management.MVC.Services.Base;
 using System.Reflection;
 
@@ -11,6 +13,8 @@ namespace Character_Management.MVC
 
             builder.Services.AddHttpClient<IClient,Client>(c => c.BaseAddress = new Uri(builder.Configuration.GetSection("ApiAddress").Value));
             builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            builder.Services.AddSingleton<ILocalStorageService, LocalStorageService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

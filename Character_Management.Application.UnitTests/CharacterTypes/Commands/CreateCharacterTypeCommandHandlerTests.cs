@@ -4,6 +4,7 @@ using Character_Management.Application.DTOs.CharacterType;
 using Character_Management.Application.Features.CharacterTypes.Handlers.Commands;
 using Character_Management.Application.Features.CharacterTypes.Requests.Commands;
 using Character_Management.Application.profiles;
+using Character_Management.Application.Responses;
 using Character_Management.Application.UnitTests.Mocks;
 using Moq;
 using Shouldly;
@@ -39,7 +40,7 @@ namespace Character_Management.Application.UnitTests.CharacterTypes.Commands
             var handler = new CreateCharacterTypeCommandHandler(_mockCharactertTypeRepository.Object , _mapper);
             var result = await handler.Handle(new CreateCharacterTypeCommand() {CreateCharacterTypeDto = _createCharacterTypeDto}, CancellationToken.None);
 
-            result.ShouldBeOfType<int>();
+            result.ShouldBeOfType<BaseCommandResponse>();
 
             var characterTypes = await _mockCharactertTypeRepository.Object.GetAll();
 

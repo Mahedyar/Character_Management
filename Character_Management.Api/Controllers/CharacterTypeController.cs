@@ -1,6 +1,7 @@
 ﻿using Character_Management.Application.DTOs.CharacterType;
 using Character_Management.Application.Features.CharacterTypes.Requests.Commands;
 using Character_Management.Application.Features.CharacterTypes.Requests.Queries;
+using Character_Management.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,7 +39,7 @@ namespace Character_Management.Api.Controllers
 
         // POST api/<CharacterTypeController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreateCharacterTypeDto createCharacterTypeDto)
+        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateCharacterTypeDto createCharacterTypeDto)
         {
             var command = new CreateCharacterTypeCommand { CreateCharacterTypeDto = createCharacterTypeDto };
             var response = await _mediator.Send(command);
