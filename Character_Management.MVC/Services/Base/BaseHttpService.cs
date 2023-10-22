@@ -5,8 +5,8 @@ namespace Character_Management.MVC.Services.Base
 {
     public class BaseHttpService
     {
-        private readonly IClient _client;
-        private readonly ILocalStorageService _localStorageService;
+        protected readonly IClient _client;
+        protected readonly ILocalStorageService _localStorageService;
 
         public BaseHttpService(IClient client , ILocalStorageService localStorageService)
         {

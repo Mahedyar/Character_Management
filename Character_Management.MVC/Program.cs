@@ -13,8 +13,8 @@ namespace Character_Management.MVC
 
             builder.Services.AddHttpClient<IClient,Client>(c => c.BaseAddress = new Uri(builder.Configuration.GetSection("ApiAddress").Value));
             builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
             builder.Services.AddSingleton<ILocalStorageService, LocalStorageService>();
+            builder.Services.AddScoped<ICharacterTypeService,CharacterTypeService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
