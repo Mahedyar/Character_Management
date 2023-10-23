@@ -13,6 +13,6 @@ namespace Character_Management.MVC.Contracts
 
         Task<Response<int>> UpdateCharacterType(int id , CharacterTypeVM characterType);
 
-        Task<Response<int>> DeleteLeaveType(int id);
+        Task<Response<int>> DeleteCharacterType(int id);
     }
 }

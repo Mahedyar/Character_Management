@@ -10,6 +10,7 @@ namespace Character_Management.MVC
         {
             CreateMap<CreateCharacterTypeDto, CreateCharacterTypeVM>().ReverseMap();
             CreateMap<CharacterTypeDto, CharacterTypeVM>().ReverseMap();
+            CreateMap<UpdateCharacterTypeDto, CharacterTypeVM>().ReverseMap();
             
         }
     }

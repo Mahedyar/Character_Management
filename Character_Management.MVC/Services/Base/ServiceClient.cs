@@ -20,7 +20,7 @@ namespace Character_Management.MVC.Services.Base
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial interface IClient
+    public partial interface IClient 
     {
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -204,7 +204,7 @@ namespace Character_Management.MVC.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (response_.IsSuccessStatusCode)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<CharacterDto>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -281,7 +281,7 @@ namespace Character_Management.MVC.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (response_.IsSuccessStatusCode)
                         {
                             return;
                         }
@@ -354,7 +354,7 @@ namespace Character_Management.MVC.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (response_.IsSuccessStatusCode)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<CharacterDto>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -435,7 +435,7 @@ namespace Character_Management.MVC.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (response_.IsSuccessStatusCode)
                         {
                             return;
                         }
@@ -507,7 +507,7 @@ namespace Character_Management.MVC.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (response_.IsSuccessStatusCode)
                         {
                             return;
                         }
@@ -583,7 +583,7 @@ namespace Character_Management.MVC.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (response_.IsSuccessStatusCode)
                         {
                             return;
                         }
@@ -652,7 +652,7 @@ namespace Character_Management.MVC.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (response_.IsSuccessStatusCode)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<CharacterTypeDto>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -730,7 +730,7 @@ namespace Character_Management.MVC.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (response_.IsSuccessStatusCode)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<BaseCommandResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -808,7 +808,7 @@ namespace Character_Management.MVC.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (response_.IsSuccessStatusCode)
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<CharacterTypeDto>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
@@ -889,7 +889,7 @@ namespace Character_Management.MVC.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (response_.IsSuccessStatusCode)
                         {
                             return;
                         }
@@ -961,7 +961,7 @@ namespace Character_Management.MVC.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (response_.IsSuccessStatusCode)
                         {
                             return;
                         }

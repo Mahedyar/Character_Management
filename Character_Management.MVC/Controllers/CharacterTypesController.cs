@@ -21,9 +21,10 @@ namespace Character_Management.MVC.Controllers
         }
 
         // GET: CharacterType/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+            var characterType = await _characterTypeService.GetCharacterTypeDetails(id);
+            return View(characterType);
         }
 
         // GET: CharacterType/Create
@@ -83,24 +84,44 @@ namespace Character_Management.MVC.Controllers
 		}
 
         // GET: CharacterType/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: CharacterType/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var response = await _characterTypeService.DeleteCharacterType(id);
+                if (response.Success)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                ModelState.AddModelError("", response.ValidationErrors);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
+            return BadRequest();
         }
+
+        // POST: CharacterType/Delete/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Delete(int id)
+        //{
+        //    try
+        //    {
+        //        var response = await _characterTypeService.DeleteCharacterType(id);
+        //        if (response.Success)
+        //        {
+        //            return RedirectToAction(nameof(Index));
+        //        }
+        //        ModelState.AddModelError("", response.ValidationErrors);
+
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        ModelState.AddModelError("", ex.Message);
+        //    }
+        //    return BadRequest();
+        //}
     }
 }

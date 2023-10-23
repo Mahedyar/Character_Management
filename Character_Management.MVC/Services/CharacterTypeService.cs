@@ -49,7 +49,7 @@ namespace Character_Management.MVC.Services
             }
         }
 
-        public async Task<Response<int>> DeleteLeaveType(int id)
+        public async Task<Response<int>> DeleteCharacterType(int id)
         {
             try
             {

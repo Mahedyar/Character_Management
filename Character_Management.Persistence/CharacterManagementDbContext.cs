@@ -25,7 +25,7 @@ namespace Character_Management.Persistence
 
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
         {
-            foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
+            foreach (var entry in ChangeTracker.Entries<BaseDomainEntity<int>>())
             {
                 entry.Entity.LastModifiedDate = DateTime.Now;
                 if (entry.State == EntityState.Added)
@@ -37,7 +37,7 @@ namespace Character_Management.Persistence
         }
         public override int SaveChanges()
         {
-            foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
+            foreach (var entry in ChangeTracker.Entries<BaseDomainEntity<int>>())
             {
                 entry.Entity.LastModifiedDate = DateTime.Now;
                 if (entry.State == EntityState.Added)

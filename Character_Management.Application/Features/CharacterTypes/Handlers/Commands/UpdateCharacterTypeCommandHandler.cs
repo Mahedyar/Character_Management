@@ -27,7 +27,7 @@ namespace Character_Management.Application.Features.CharacterTypes.Handlers.Comm
         {
             var validator = new UpdateCharacterTypeDtoValidator();
             var validationResult = await validator.ValidateAsync(request.UpdateCharacterTypeDto);
-            if(validationResult != null)
+            if(validationResult.IsValid == false)
             {
                 throw new ValidationException(validationResult);
             }

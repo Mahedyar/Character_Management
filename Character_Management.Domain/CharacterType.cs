@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Character_Management.Domain
 {
-    public class CharacterType : BaseDomainEntity
+    public class CharacterType : BaseDomainEntity<int>
     {
         public string Type { get; set; }
 
