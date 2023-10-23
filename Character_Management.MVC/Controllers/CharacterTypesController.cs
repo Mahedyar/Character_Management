@@ -55,25 +55,32 @@ namespace Character_Management.MVC.Controllers
         }
 
         // GET: CharacterType/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            var characterType = await _characterTypeService.GetCharacterTypeDetails(id);
+            return View(characterType);
         }
 
         // POST: CharacterType/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, CharacterTypeVM characterTypeVM)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var response = await _characterTypeService.UpdateCharacterType(id , characterTypeVM);
+                if (response.Success)
+                {
+                    return RedirectToAction("Index");
+                }
+                ModelState.AddModelError("", response.ValidationErrors);
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message); 
             }
-        }
+			return View(characterTypeVM);
+		}
 
         // GET: CharacterType/Delete/5
         public ActionResult Delete(int id)
