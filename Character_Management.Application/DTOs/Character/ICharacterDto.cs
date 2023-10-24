@@ -8,7 +8,7 @@ namespace Character_Management.Application.DTOs.Character
     {
         public string Name { get; set; }
         public string House { get; set; }
-        public int CharacterTypeID { get; set; }
+        public int CharacterTypeId { get; set; }
         public string? Story { get; set; }
         public string? AbilityDescription { get; set; }
         public string? AbilityType { get; set; }

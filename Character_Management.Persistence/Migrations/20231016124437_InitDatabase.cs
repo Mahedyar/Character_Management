@@ -15,7 +15,7 @@ namespace Character_Management.Persistence.Migrations
                 name: "CharacterTypes",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -25,18 +25,18 @@ namespace Character_Management.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CharacterTypes", x => x.ID);
+                    table.PrimaryKey("PK_CharacterTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Characters",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     House = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CharacterTypeID = table.Column<int>(type: "int", nullable: false),
+                    CharacterTypeId = table.Column<int>(type: "int", nullable: false),
                     Story = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AbilityDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AbilityType = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -53,19 +53,19 @@ namespace Character_Management.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Characters", x => x.ID);
+                    table.PrimaryKey("PK_Characters", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Characters_CharacterTypes_CharacterTypeID",
-                        column: x => x.CharacterTypeID,
+                        name: "FK_Characters_CharacterTypes_CharacterTypeId",
+                        column: x => x.CharacterTypeId,
                         principalTable: "CharacterTypes",
-                        principalColumn: "ID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Characters_CharacterTypeID",
+                name: "IX_Characters_CharacterTypeId",
                 table: "Characters",
-                column: "CharacterTypeID");
+                column: "CharacterTypeId");
         }
 
         /// <inheritdoc />

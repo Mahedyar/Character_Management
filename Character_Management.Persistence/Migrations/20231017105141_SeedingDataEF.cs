@@ -10,7 +10,7 @@ namespace Character_Management.Persistence.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Characters_CharacterTypes_CharacterTypeID",
+                name: "FK_Characters_CharacterTypes_CharacterTypeId",
                 table: "Characters");
 
             migrationBuilder.AlterColumn<string>(
@@ -72,7 +72,7 @@ namespace Character_Management.Persistence.Migrations
                 oldType: "nvarchar(max)");
 
             migrationBuilder.AlterColumn<int>(
-                name: "CharacterTypeID",
+                name: "CharacterTypeId",
                 table: "Characters",
                 type: "int",
                 nullable: true,
@@ -81,46 +81,46 @@ namespace Character_Management.Persistence.Migrations
 
             migrationBuilder.InsertData(
                 table: "CharacterTypes",
-                columns: new[] { "ID", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Type" },
+                columns: new[] { "Id", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Type" },
                 values: new object[] { 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "AshrafZade" });
 
             migrationBuilder.InsertData(
                 table: "CharacterTypes",
-                columns: new[] { "ID", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Type" },
+                columns: new[] { "Id", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Type" },
                 values: new object[] { 2, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "JangJu" });
 
             migrationBuilder.InsertData(
                 table: "Characters",
-                columns: new[] { "ID", "AbilityDescription", "AbilityType", "Approved", "Cancelled", "CharacterTypeID", "Continent", "Country", "CreatedBy", "CreatedDate", "House", "LastModifiedBy", "LastModifiedDate", "Name", "RequestDate", "RespondedDate", "Story" },
+                columns: new[] { "Id", "AbilityDescription", "AbilityType", "Approved", "Cancelled", "CharacterTypeId", "Continent", "Country", "CreatedBy", "CreatedDate", "House", "LastModifiedBy", "LastModifiedDate", "Name", "RequestDate", "RespondedDate", "Story" },
                 values: new object[] { 1, null, "Mohajem", null, null, 1, null, null, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Raviz", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Arvid", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null });
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Characters_CharacterTypes_CharacterTypeID",
+                name: "FK_Characters_CharacterTypes_CharacterTypeId",
                 table: "Characters",
-                column: "CharacterTypeID",
+                column: "CharacterTypeId",
                 principalTable: "CharacterTypes",
-                principalColumn: "ID");
+                principalColumn: "Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Characters_CharacterTypes_CharacterTypeID",
+                name: "FK_Characters_CharacterTypes_CharacterTypeId",
                 table: "Characters");
 
             migrationBuilder.DeleteData(
                 table: "CharacterTypes",
-                keyColumn: "ID",
+                keyColumn: "Id",
                 keyValue: 2);
 
             migrationBuilder.DeleteData(
                 table: "Characters",
-                keyColumn: "ID",
+                keyColumn: "Id",
                 keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "CharacterTypes",
-                keyColumn: "ID",
+                keyColumn: "Id",
                 keyValue: 1);
 
             migrationBuilder.AlterColumn<string>(
@@ -192,7 +192,7 @@ namespace Character_Management.Persistence.Migrations
                 oldNullable: true);
 
             migrationBuilder.AlterColumn<int>(
-                name: "CharacterTypeID",
+                name: "CharacterTypeId",
                 table: "Characters",
                 type: "int",
                 nullable: false,
@@ -202,11 +202,11 @@ namespace Character_Management.Persistence.Migrations
                 oldNullable: true);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Characters_CharacterTypes_CharacterTypeID",
+                name: "FK_Characters_CharacterTypes_CharacterTypeId",
                 table: "Characters",
-                column: "CharacterTypeID",
+                column: "CharacterTypeId",
                 principalTable: "CharacterTypes",
-                principalColumn: "ID",
+                principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
     }

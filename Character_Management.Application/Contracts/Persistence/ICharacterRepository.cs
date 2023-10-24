@@ -9,7 +9,7 @@ namespace Character_Management.Application.Contracts.Persistence
     public interface ICharacterRepository : IGenericRepository<Character>
     {
         Task<List<Character>> GetCharactersWithDetails();
-        Task<Character> GetSingleCharacterWithDetails(int id);
+        Task<Character> GetSingleCharacterWithDetails(int Id);
 
         Task ChangeApprovalStatus(Character character, bool? approvalStatus);
     }

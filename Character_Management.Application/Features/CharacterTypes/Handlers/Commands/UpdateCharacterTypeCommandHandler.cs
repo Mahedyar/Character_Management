@@ -31,7 +31,7 @@ namespace Character_Management.Application.Features.CharacterTypes.Handlers.Comm
             {
                 throw new ValidationException(validationResult);
             }
-            var characterType = await _characterTypeRepository.Get(request.UpdateCharacterTypeDto.ID);
+            var characterType = await _characterTypeRepository.Get(request.UpdateCharacterTypeDto.Id);
             _mapper.Map(request.UpdateCharacterTypeDto, characterType);
             await _characterTypeRepository.Update(characterType);
             return Unit.Value;

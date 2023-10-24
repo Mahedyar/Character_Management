@@ -25,10 +25,10 @@ namespace Character_Management.Application.Features.Characters.Handlers.Commands
 
         public async Task<Unit> Handle(DeleteCharacterCommand request, CancellationToken cancellationToken)
         {
-            var character = await _characterRepository.Get(request.ID);
+            var character = await _characterRepository.Get(request.Id);
             if(character == null)
             {
-                throw new NotFoundException(nameof(Character), request.ID);
+                throw new NotFoundException(nameof(Character), request.Id);
             }
             await _characterRepository.Delete(character);
             return Unit.Value;

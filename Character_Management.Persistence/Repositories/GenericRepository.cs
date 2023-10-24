@@ -28,15 +28,15 @@ namespace Character_Management.Persistence.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> Exist(int ID)
+        public async Task<bool> Exist(int Id)
         {
-            var entity = await Get(ID);
+            var entity = await Get(Id);
             return entity != null;
         }
 
-        public async Task<T> Get(int ID)
+        public async Task<T> Get(int Id)
         {
-            return await _context.Set<T>().FindAsync(ID);
+            return await _context.Set<T>().FindAsync(Id);
         }
 
         public async Task<IReadOnlyList<T>> GetAll()

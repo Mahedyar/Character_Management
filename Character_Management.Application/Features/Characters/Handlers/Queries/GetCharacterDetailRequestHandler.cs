@@ -20,8 +20,8 @@ namespace Character_Management.Application.Features.Characters.Handlers.Queries
         }
         public async Task<CharacterDto> Handle(GetCharacterDetailRequest request, CancellationToken cancellationToken)
         {
-            //var character = await _characterRepository.Get(request.ID);
-            var character = await _characterRepository.GetSingleCharacterWithDetails(request.ID);
+            //var character = await _characterRepository.Get(request.Id);
+            var character = await _characterRepository.GetSingleCharacterWithDetails(request.Id);
             return _mapper.Map<CharacterDto>(character);
         }
     }

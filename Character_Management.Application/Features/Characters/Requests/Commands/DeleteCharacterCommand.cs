@@ -7,6 +7,6 @@ namespace Character_Management.Application.Features.Characters.Requests.Commands
 {
     public class DeleteCharacterCommand:IRequest<Unit>
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
     }
 }

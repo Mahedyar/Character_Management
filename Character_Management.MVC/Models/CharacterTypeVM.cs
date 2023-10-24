@@ -2,6 +2,6 @@
 {
     public class CharacterTypeVM:CreateCharacterTypeVM
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
     }
 }

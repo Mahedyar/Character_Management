@@ -14,8 +14,8 @@ namespace Character_Management.Persistence.Configurations.Entities
             builder.HasData(
                 new Character
             {
-                ID = 1,
-                CharacterTypeID = 1,
+                Id = 1,
+                CharacterTypeId = 1,
                 AbilityType = "Mohajem",
                 Name = "Arvid",
                 House = "Raviz"

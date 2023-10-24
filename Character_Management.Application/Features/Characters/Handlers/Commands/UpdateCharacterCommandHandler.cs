@@ -33,7 +33,7 @@ namespace Character_Management.Application.Features.Characters.Handlers.Commands
             {
                 throw new ValidationException(validationResult);
             }
-            var character = await _characterRepository.Get(request.ID);
+            var character = await _characterRepository.Get(request.Id);
             if (request.UpdateCharacterDto != null)
             {
 

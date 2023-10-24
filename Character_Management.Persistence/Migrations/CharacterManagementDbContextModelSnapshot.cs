@@ -24,11 +24,11 @@ namespace Character_Management.Persistence.Migrations
 
             modelBuilder.Entity("Character_Management.Domain.Character", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1, 1);
 
                     b.Property<string>("AbilityDescription")
                         .HasColumnType("nvarchar(max)");
@@ -42,7 +42,7 @@ namespace Character_Management.Persistence.Migrations
                     b.Property<bool?>("Cancelled")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("CharacterTypeID")
+                    b.Property<int?>("CharacterTypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Continent")
@@ -80,18 +80,18 @@ namespace Character_Management.Persistence.Migrations
                     b.Property<string>("Story")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("CharacterTypeID");
+                    b.HasIndex("CharacterTypeId");
 
                     b.ToTable("Characters");
 
                     b.HasData(
                         new
                         {
-                            ID = 1,
+                            Id = 1,
                             AbilityType = "Mohajem",
-                            CharacterTypeID = 1,
+                            CharacterTypeId = 1,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             House = "Raviz",
                             LastModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -103,11 +103,11 @@ namespace Character_Management.Persistence.Migrations
 
             modelBuilder.Entity("Character_Management.Domain.CharacterType", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1, 1);
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -125,21 +125,21 @@ namespace Character_Management.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("CharacterTypes");
 
                     b.HasData(
                         new
                         {
-                            ID = 1,
+                            Id = 1,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Type = "AshrafZade"
                         },
                         new
                         {
-                            ID = 2,
+                            Id = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Type = "JangJu"
@@ -150,7 +150,7 @@ namespace Character_Management.Persistence.Migrations
                 {
                     b.HasOne("Character_Management.Domain.CharacterType", "CharacterType")
                         .WithMany()
-                        .HasForeignKey("CharacterTypeID");
+                        .HasForeignKey("CharacterTypeId");
 
                     b.Navigation("CharacterType");
                 });

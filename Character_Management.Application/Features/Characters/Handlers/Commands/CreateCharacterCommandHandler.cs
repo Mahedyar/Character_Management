@@ -47,7 +47,7 @@ namespace Character_Management.Application.Features.Characters.Handlers.Commands
             character = await _characterRepository.Add(character);
             response.Success = true;
             response.Message = "Creation Successful";
-            response.ID = character.ID;
+            response.Id = character.Id;
             var email = new Email
             {
                 To = "mahedyar@gmail.com",

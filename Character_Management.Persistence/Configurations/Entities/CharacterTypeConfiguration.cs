@@ -14,12 +14,12 @@ namespace Character_Management.Persistence.Configurations.Entities
             builder.HasData(
                 new CharacterType
                 {
-                    ID = 1,
+                    Id = 1,
                     Type = "AshrafZade",
                 },
                 new CharacterType
                 {
-                    ID = 2,
+                    Id = 2,
                     Type = "JangJu"
                 }
                 );

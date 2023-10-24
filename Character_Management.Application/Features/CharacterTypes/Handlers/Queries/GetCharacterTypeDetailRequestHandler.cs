@@ -23,7 +23,7 @@ namespace Character_Management.Application.Features.CharacterTypes.Handlers.Quer
         }
         public async Task<CharacterTypeDto> Handle(GetCharacterTypeDetailRequest request, CancellationToken cancellationToken)
         {
-            var characterType = await _characterTypeRepository.Get(request.ID);
+            var characterType = await _characterTypeRepository.Get(request.Id);
             return _mapper.Map<CharacterTypeDto>(characterType);
         }
     }

@@ -5,7 +5,7 @@ using Character_Management.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?Linkid=397860
 
 namespace Character_Management.Api.Controllers
 {
@@ -29,10 +29,10 @@ namespace Character_Management.Api.Controllers
         }
 
         // GET api/<CharacterTypeController>/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CharacterTypeDto>> Get(int id)
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<CharacterTypeDto>> Get(int Id)
         {
-            var command = new GetCharacterTypeDetailRequest { ID = id };
+            var command = new GetCharacterTypeDetailRequest { Id = Id };
             var response = await _mediator.Send(command);
             return Ok(response);
         }
@@ -47,19 +47,19 @@ namespace Character_Management.Api.Controllers
         }
 
         // PUT api/<CharacterTypeController>/5
-        [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] UpdateCharacterTypeDto updateCharacterTypeCommand)
+        [HttpPut("{Id}")]
+        public async Task<ActionResult> Put(int Id, [FromBody] UpdateCharacterTypeDto updateCharacterTypeCommand)
         {
-            var command = new UpdateCharacterTypeCommand { ID = id, UpdateCharacterTypeDto = updateCharacterTypeCommand };
+            var command = new UpdateCharacterTypeCommand { Id = Id, UpdateCharacterTypeDto = updateCharacterTypeCommand };
             await _mediator.Send(command);
             return NoContent();
         }
 
         // DELETE api/<CharacterTypeController>/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        [HttpDelete("{Id}")]
+        public async Task<ActionResult> Delete(int Id)
         {
-            var command = new DeleteCharacterTypeCommand { ID = id };
+            var command = new DeleteCharacterTypeCommand { Id = Id };
             await _mediator.Send(command);
             return NoContent();
         }

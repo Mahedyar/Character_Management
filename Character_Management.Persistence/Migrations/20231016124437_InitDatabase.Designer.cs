@@ -27,11 +27,11 @@ namespace Character_Management.Persistence.Migrations
 
             modelBuilder.Entity("Character_Management.Domain.Character", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AbilityDescription")
                         .HasColumnType("nvarchar(max)");
@@ -45,7 +45,7 @@ namespace Character_Management.Persistence.Migrations
                     b.Property<bool?>("Cancelled")
                         .HasColumnType("bit");
 
-                    b.Property<int>("CharacterTypeID")
+                    b.Property<int>("CharacterTypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Continent")
@@ -87,20 +87,20 @@ namespace Character_Management.Persistence.Migrations
                     b.Property<string>("Story")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("CharacterTypeID");
+                    b.HasIndex("CharacterTypeId");
 
                     b.ToTable("Characters");
                 });
 
             modelBuilder.Entity("Character_Management.Domain.CharacterType", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -120,7 +120,7 @@ namespace Character_Management.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("CharacterTypes");
                 });
@@ -129,7 +129,7 @@ namespace Character_Management.Persistence.Migrations
                 {
                     b.HasOne("Character_Management.Domain.CharacterType", "CharacterType")
                         .WithMany()
-                        .HasForeignKey("CharacterTypeID")
+                        .HasForeignKey("CharacterTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

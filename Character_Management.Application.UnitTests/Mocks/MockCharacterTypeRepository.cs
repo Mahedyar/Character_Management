@@ -12,12 +12,12 @@ namespace Character_Management.Application.UnitTests.Mocks
             {
                 new CharacterType
                 {
-                    ID =1,
+                    Id =1,
                     Type = "Test AshrafZade"
                 },
                 new CharacterType
                 {
-                    ID=2,
+                    Id=2,
                     Type = "Test Jangju"
                 }
             };

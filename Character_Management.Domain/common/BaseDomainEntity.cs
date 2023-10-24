@@ -6,7 +6,7 @@ namespace Character_Management.Domain.common
 {
     public abstract class BaseDomainEntity<T>
     {
-        public T ID { get; set; }
+        public T Id { get; set; }
         public DateTime CreatedDate { get; set; }
         public string? CreatedBy { get; set; }
         public DateTime LastModifiedDate { get; set; }

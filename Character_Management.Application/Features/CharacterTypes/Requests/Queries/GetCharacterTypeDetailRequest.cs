@@ -8,6 +8,6 @@ namespace Character_Management.Application.Features.CharacterTypes.Requests.Quer
 {
     public class GetCharacterTypeDetailRequest:IRequest<CharacterTypeDto>
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
     }
 }

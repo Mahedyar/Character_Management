@@ -5,7 +5,7 @@ using Character_Management.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?Linkid=397860
 
 namespace Character_Management.Api.Controllers
 {
@@ -28,10 +28,10 @@ namespace Character_Management.Api.Controllers
         }
 
         // GET api/<CharacterController>/5
-        [HttpGet("{id}")] 
-        public async Task<ActionResult<CharacterDto>> Get(int id)
+        [HttpGet("{Id}")] 
+        public async Task<ActionResult<CharacterDto>> Get(int Id)
         {
-            var character = await _mediator.Send(new GetCharacterDetailRequest {ID = id });
+            var character = await _mediator.Send(new GetCharacterDetailRequest {Id = Id });
             return Ok(character);
         }
 
@@ -45,28 +45,28 @@ namespace Character_Management.Api.Controllers
         }
 
         // PUT api/<CharacterController>/5
-        [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] UpdateCharacterDto updateCharacterDto)
+        [HttpPut("{Id}")]
+        public async Task<ActionResult> Put(int Id, [FromBody] UpdateCharacterDto updateCharacterDto)
         {
-            var command = new UpdateCharacterCommand {ID=id, UpdateCharacterDto = updateCharacterDto };
+            var command = new UpdateCharacterCommand {Id=Id, UpdateCharacterDto = updateCharacterDto };
             await _mediator.Send(command);
             return NoContent();
         }
         // PUT api/<CharacterController>/changeapproval/5
-        [HttpPut("changeapproval/{id}")]
-        public async Task<ActionResult> ChangeApproval(int id , [FromBody] ChangeCharacterApprovalDto changeCharacterApprovalDto)
+        [HttpPut("changeapproval/{Id}")]
+        public async Task<ActionResult> ChangeApproval(int Id , [FromBody] ChangeCharacterApprovalDto changeCharacterApprovalDto)
         {
-            var command = new UpdateCharacterCommand { ID = id, ChangeCharacterApprovalDto = changeCharacterApprovalDto };
+            var command = new UpdateCharacterCommand { Id = Id, ChangeCharacterApprovalDto = changeCharacterApprovalDto };
             await _mediator.Send(command);
             return NoContent();
 
         }
 
         // DELETE api/<CharacterController>/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        [HttpDelete("{Id}")]
+        public async Task<ActionResult> Delete(int Id)
         {
-            var command = new DeleteCharacterCommand { ID = id };
+            var command = new DeleteCharacterCommand { Id = Id };
             await _mediator.Send(command);
             return NoContent();
         }

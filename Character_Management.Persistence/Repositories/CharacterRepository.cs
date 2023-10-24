@@ -30,9 +30,9 @@ namespace Character_Management.Persistence.Repositories
             return characters;
         }
 
-        public async Task<Character> GetSingleCharacterWithDetails(int id)
+        public async Task<Character> GetSingleCharacterWithDetails(int Id)
         {
-            var character = await _context.Characters.Include(c => c.CharacterType).SingleOrDefaultAsync(c=>c.ID == id);
+            var character = await _context.Characters.Include(c => c.CharacterType).SingleOrDefaultAsync(c=>c.Id == Id);
             return character;
         }
     }
