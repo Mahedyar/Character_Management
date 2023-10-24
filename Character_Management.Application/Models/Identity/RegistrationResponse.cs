@@ -6,6 +6,6 @@ namespace Character_Management.Application.Models.Identity
 {
     public class RegistrationResponse
     {
-        public string Userid { get; set; }
+        public string UserId { get; set; }
     }
 }
