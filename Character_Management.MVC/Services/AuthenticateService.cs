@@ -16,9 +16,28 @@ namespace Character_Management.MVC.Services
             _jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
         }
 
-        public Task<bool> Authenticate(string email, string password)
+        public async Task<bool> Authenticate(string email, string password)
         {
-            throw new NotImplementedException();
+            try
+            {
+                AuthenticationRequest authenticationRequest = new()
+                {
+                    Email = email, Password = password
+                };
+                var authenticateResponse = await _client.LoginAsync(authenticationRequest);
+                if(authenticateResponse.Token != string.Empty)
+                {
+                    var tokenContent = _jwtSecurityTokenHandler.ReadJwtToken(authenticateResponse.Token);
+                    var claims = new Dictionary<string, string>();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+           
         }
 
         public Task Logout()
@@ -30,5 +49,7 @@ namespace Character_Management.MVC.Services
         {
             throw new NotImplementedException();
         }
+
+
     }
 }
