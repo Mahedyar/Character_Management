@@ -1,6 +1,9 @@
 ﻿using Character_Management.MVC.Contracts;
 using Character_Management.MVC.Services.Base;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace Character_Management.MVC.Services
 {
@@ -28,26 +31,38 @@ namespace Character_Management.MVC.Services
                 if(authenticateResponse.Token != string.Empty)
                 {
                     var tokenContent = _jwtSecurityTokenHandler.ReadJwtToken(authenticateResponse.Token);
-                    var claims = new Dictionary<string, string>();
+                    var claims = ParseClaims(tokenContent);
+                    var user = new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
+                    var login = _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, user);
+
+                    _localStorageService.SetStorageValue("token", authenticateResponse.Token);
                     return true;
                 }
                 return false;
             }
             catch
             {
-                return false;
+                return false; 
             }
            
         }
 
-        public Task Logout()
+        public async Task Logout()
         {
-            throw new NotImplementedException();
+            _localStorageService.ClearStorage(new List<string>() { "token" });
+            await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         }
 
         public Task<bool> Register(string firstName, string lastName, string userName, string password)
         {
             throw new NotImplementedException();
+        }
+
+        private IList<Claim> ParseClaims(JwtSecurityToken token)
+        {
+            var claims = token.Claims.ToList();
+            claims.Add(new Claim(ClaimTypes.Name, token.Subject));
+            return claims;
         }
 
 
