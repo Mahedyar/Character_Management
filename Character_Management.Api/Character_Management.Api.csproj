@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.14">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Character_Management.Application\Character_Management.Application.csproj" />
     <ProjectReference Include="..\Character_Management.Domain\Character_Management.Domain.csproj" />
+    <ProjectReference Include="..\Character_Management.Identity\Character_Management.Identity.csproj" />
     <ProjectReference Include="..\Character_Management.Infrastructure\Character_Management.Infrastructure.csproj" />
     <ProjectReference Include="..\Character_Management.Persistence\Character_Management.Persistence.csproj" />
   </ItemGroup>

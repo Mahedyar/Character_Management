@@ -3,6 +3,7 @@ using Character_Management.Application.Features.CharacterTypes.Requests.Commands
 using Character_Management.Application.Features.CharacterTypes.Requests.Queries;
 using Character_Management.Application.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?Linkid=397860
@@ -11,6 +12,7 @@ namespace Character_Management.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class CharacterTypeController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -21,6 +23,7 @@ namespace Character_Management.Api.Controllers
         }
         // GET: api/<CharacterTypeController>
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<CharacterTypeDto>>> Get()
         {
             var command = new GetCharacterTypeListRequest();
