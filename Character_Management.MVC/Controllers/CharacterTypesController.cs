@@ -1,12 +1,15 @@
 ﻿using Character_Management.MVC.Contracts;
 using Character_Management.MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Character_Management.MVC.Controllers
 {
+    [Authorize]
     public class CharacterTypesController : Controller
     {
+       
         private readonly ICharacterTypeService _characterTypeService;
 
         public CharacterTypesController(ICharacterTypeService characterTypeService)

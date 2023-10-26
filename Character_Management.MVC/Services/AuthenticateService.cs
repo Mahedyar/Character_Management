@@ -1,4 +1,5 @@
 ﻿using Character_Management.MVC.Contracts;
+using Character_Management.MVC.Models;
 using Character_Management.MVC.Services.Base;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -53,9 +54,23 @@ namespace Character_Management.MVC.Services
             await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         }
 
-        public Task<bool> Register(string firstName, string lastName, string userName, string password)
+        public async Task<bool> Register(RegisterVM register)
         {
-            throw new NotImplementedException();
+            RegistrationRequest registrationRequest = new()
+            {
+                Email =register.Email,
+                Password = register.Password,
+                FirstName = register.FirstName, 
+                LastName = register.LastName,
+                UserName = register.UserName
+                
+            };
+            var response = await _client.RegisterAsync(registrationRequest);
+            if (!string.IsNullOrEmpty(response.UserId)) 
+            {
+                return true;
+            }
+            return false;
         }
 
         private IList<Claim> ParseClaims(JwtSecurityToken token)

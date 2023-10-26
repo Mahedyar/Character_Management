@@ -25,7 +25,8 @@ namespace Character_Management.MVC.Services
                 var response = new Response<int>();
                 CreateCharacterTypeDto createCharacterTypeDto = _mapper.Map<CreateCharacterTypeDto>(characterTypeVM);
 
-                //Todo Auth
+
+                AddBearerToken();
 
               
                 var apiResponse = await _httpClient.CharacterTypePOSTAsync(createCharacterTypeDto);
@@ -53,6 +54,7 @@ namespace Character_Management.MVC.Services
         {
             try
             {
+                AddBearerToken();
                 await _httpClient.CharacterTypeDELETEAsync(id);
                 return new Response<int> { Success = true };
             }
@@ -64,12 +66,14 @@ namespace Character_Management.MVC.Services
 
         public async Task<CharacterTypeVM> GetCharacterTypeDetails(int id)
         {
+            AddBearerToken();
             var characterType = await _httpClient.CharacterTypeGETAsync(id);
             return _mapper.Map<CharacterTypeVM>(characterType);
         }
 
         public async Task<List<CharacterTypeVM>> GetCharacterTypes()
         {
+            AddBearerToken();
             var characterTypes = await _httpClient.CharacterTypeAllAsync();
             return _mapper.Map<List<CharacterTypeVM>>(characterTypes);
         }
@@ -78,6 +82,7 @@ namespace Character_Management.MVC.Services
         {
             try
             {
+                AddBearerToken();
                 UpdateCharacterTypeDto updateCharacterTypeDto = _mapper.Map<UpdateCharacterTypeDto>(characterType);
                 await _httpClient.CharacterTypePUTAsync(id, updateCharacterTypeDto);
                 return new Response<int> { Success = true };

@@ -3,6 +3,7 @@ using Character_Management.Application.Features.Characters.Requests.Commands;
 using Character_Management.Application.Features.Characters.Requests.Queries;
 using Character_Management.Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?Linkid=397860
@@ -11,6 +12,7 @@ namespace Character_Management.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CharacterController : ControllerBase
     {
         private readonly IMediator _mediator;

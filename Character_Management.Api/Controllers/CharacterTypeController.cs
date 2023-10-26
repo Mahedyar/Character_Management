@@ -12,7 +12,7 @@ namespace Character_Management.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class CharacterTypeController : ControllerBase
     {
         private readonly IMediator _mediator;
