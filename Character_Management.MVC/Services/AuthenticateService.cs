@@ -18,6 +18,8 @@ namespace Character_Management.MVC.Services
         {
             _httpContextAccessor = httpContextAccessor;
             _jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
+            _client = client;
+
         }
 
         public async Task<bool> Authenticate(string email, string password)
